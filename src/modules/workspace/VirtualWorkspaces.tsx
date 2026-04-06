@@ -1,6 +1,6 @@
 
 import React, { useState, useMemo } from 'react';
-import { Language } from '../types';
+import { Language } from '../../types';
 
 interface Props {
   lang: Language;
@@ -206,18 +206,6 @@ export const VirtualWorkspaces: React.FC<Props> = ({ lang }) => {
                </button>
             ))}
          </nav>
-
-         <div className="mt-4 pt-4 border-t border-white/10">
-            <div className="p-3 rounded-xl bg-blue-900/30 border border-white/10">
-               <div className="flex justify-between items-center text-xs text-blue-200 mb-1">
-                  <span className="font-bold">Virtual Drive</span>
-                  <span>45%</span>
-               </div>
-               <div className="w-full bg-black/30 h-1.5 rounded-full overflow-hidden">
-                  <div className="bg-blue-400 h-full rounded-full w-[45%]"></div>
-               </div>
-            </div>
-         </div>
       </div>
 
       {/* MAIN CONTENT */}

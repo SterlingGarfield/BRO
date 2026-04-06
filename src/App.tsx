@@ -1,20 +1,20 @@
 
 import React, { useState, useEffect } from 'react';
-import { Header, Sidebar } from './components/Layout';
-import { Hub } from './components/Hub';
+import { Header, Sidebar } from './components/layout/Layout';
+import { Hub } from './components/layout/Hub';
 import { AppView, AppConfig, Language } from './types';
 
 // View Components
-import { FileConverter } from './views/FileConverter';
-import { TransitStation } from './views/TransitStation';
-import { ParallelInterface } from './views/ParallelInterface';
-import { MediaDownloader } from './views/MediaDownloader';
-import { CourseTable } from './views/CourseTable';
-import { ScheduleTask } from './views/ScheduleTask';
-import { DiskVisualizer } from './views/DiskVisualizer';
+import { FileConverter } from './modules/file/FileConverter';
+import { TransitStation } from './modules/transit/TransitStation';
+import { ParallelInterface } from './modules/parallel/ParallelInterface';
+import { MediaDownloader } from './modules/media/MediaDownloader';
+import { CourseTable } from './modules/course/CourseTable';
+import { ScheduleTask } from './modules/schedule/ScheduleTask';
+import { DiskVisualizer } from './modules/disk/DiskVisualizer';
 import { Desktop } from './views/Desktop';
-import { VirtualWorkspaces } from './views/VirtualWorkspaces';
-import { MediaConverter } from './views/MediaConverter';
+import { VirtualWorkspaces } from './modules/workspace/VirtualWorkspaces';
+import { MediaConverter } from './modules/media/MediaConverter';
 
 const TRANSLATIONS = {
   en: {
@@ -302,7 +302,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="flex h-screen w-screen bg-background-dark text-slate-200 font-display overflow-hidden relative selection:bg-blue-500/30">
+    <div className="flex h-screen w-screen bg-background-dark text-slate-200 font-display overflow-hidden relative selection:bg-amber-500/30">
       <Header 
         currentApp={activeApp ? localizedAppConfigs[activeApp] : getLocalizedAppConfig(DESKTOP_CONFIG)} 
         statusText={statusText}

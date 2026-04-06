@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { Language } from '../types';
+import { Language } from '../../types';
 
 interface Props {
   lang: Language;

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Language } from '../types';
-import { DiskOverview } from '../components/DiskManager/DiskOverview';
-import { DiskExplorer } from '../components/DiskManager/DiskExplorer';
-import { DiskBackup } from '../components/DiskManager/DiskBackup';
-import { DiskLogs } from '../components/DiskManager/DiskLogs';
+import { Language } from '../../types';
+import { DiskOverview } from './components/DiskOverview';
+import { DiskExplorer } from './components/DiskExplorer';
+import { DiskBackup } from './components/DiskBackup';
+import { DiskLogs } from './components/DiskLogs';
 
 interface Props {
   lang: Language;
