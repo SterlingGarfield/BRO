@@ -83,7 +83,6 @@ export const CourseTable: React.FC<Props> = ({ lang }) => {
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
   const [periods, setPeriods] = useState<Period[]>(DEFAULT_PERIODS);
   const [isImporting, setIsImporting] = useState(false);
-  const [immersiveMode, setImmersiveMode] = useState(false);
   const [isSyncing, setIsSyncing] = useState(false);
   const [showWeekend, setShowWeekend] = useState(true);
   
@@ -321,14 +320,6 @@ export const CourseTable: React.FC<Props> = ({ lang }) => {
               <span className="hidden sm:inline">{isImporting ? t.importing : t.import}</span>
            </button>
            
-           {/* Immersive/Maximize Button */}
-           <button 
-              onClick={() => setImmersiveMode(!immersiveMode)}
-              className={`p-2 rounded-lg transition-all duration-200 border ${immersiveMode ? 'bg-white/10 text-white border-white/20 shadow-inner' : 'text-slate-400 border-transparent hover:bg-white/5 hover:text-white'}`}
-              title={immersiveMode ? "Restore Side Panel" : "Maximize Schedule"}
-           >
-              <span className="material-icons-round text-xl">{immersiveMode ? 'fullscreen_exit' : 'crop_free'}</span>
-           </button>
         </div>
       </div>
 
@@ -390,7 +381,7 @@ export const CourseTable: React.FC<Props> = ({ lang }) => {
                           .map(course => (
                              <div 
                                 key={course.id}
-                                onClick={() => { setSelectedCourse(course); setImmersiveMode(false); }}
+                                onClick={() => { if (selectedCourse?.id === course.id) { setSelectedCourse(null); } else { setSelectedCourse(course); } }}
                                 style={getPositionStyle(course)}
                                 className={`absolute left-1 right-1 rounded-lg p-2 cursor-pointer transition-all duration-200 hover:brightness-110 hover:shadow-lg flex flex-col overflow-hidden
                                    ${course.color} ${course.isHighlight ? 'ring-2 ring-white shadow-[0_0_15px_rgba(255,255,255,0.4)] z-20' : 'opacity-90'}
@@ -431,7 +422,7 @@ export const CourseTable: React.FC<Props> = ({ lang }) => {
         </div>
 
         {/* 3. Details Panel (Collapsible) - Solid Opaque Background */}
-        <div className={`bg-background-dark border-l border-white/10 shrink-0 transition-all duration-300 ease-in-out flex flex-col overflow-hidden ${immersiveMode || !selectedCourse ? 'w-0 opacity-0 border-l-0' : 'w-80 opacity-100'}`}>
+        <div className={`bg-background-dark border-l border-white/10 shrink-0 transition-all duration-300 ease-in-out flex flex-col overflow-hidden ${!selectedCourse ? 'w-0 opacity-0 border-l-0' : 'w-80 opacity-100'}`}>
             {selectedCourse && (
                <>
                   <div className="p-6 border-b border-white/10 flex justify-between items-center min-w-[320px]">

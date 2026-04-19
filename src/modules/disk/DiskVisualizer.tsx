@@ -42,9 +42,12 @@ export const DiskVisualizer: React.FC<Props> = ({ lang }) => {
   return (
     <div className="h-full w-full flex flex-col bg-background-dark relative overflow-hidden font-sans text-slate-300 selection:bg-blue-500/30">
       
-      {/* Ambient Background Effects Removed */}
+      {/* Ambient Background Effects */}
+      <div className="absolute top-[-20%] right-[-10%] w-[50%] h-[50%] bg-blue-600/5 blur-[120px] rounded-full pointer-events-none animate-pulse-slow"></div>
+      <div className="absolute bottom-[-20%] left-[-10%] w-[50%] h-[50%] bg-orange-600/5 blur-[120px] rounded-full pointer-events-none animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
       
-      {/* Fading Overlay Removed */}
+      {/* Fading Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background-dark/50 pointer-events-none z-10"></div>
 
       {/* Header / Tabs */}
       <div className="h-16 shrink-0 border-b border-white/10 bg-white/5 flex items-center px-6 justify-between z-20 backdrop-blur-md">

@@ -108,7 +108,7 @@ const DESKTOP_CONFIG: AppConfig = {
   path: '~/Desktop',
   icon: 'grid_view',
   description: 'System Overview',
-  color: 'bg-slate-500'
+  color: 'bg-blue-500'
 };
 
 // Placeholder for views not yet fully implemented
@@ -302,7 +302,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="flex h-screen w-screen bg-background-dark text-slate-200 font-display overflow-hidden relative selection:bg-amber-500/30">
+    <div className="flex h-screen w-screen bg-background-dark text-slate-200 font-display overflow-hidden relative selection:bg-blue-500/30">
       <Header 
         currentApp={activeApp ? localizedAppConfigs[activeApp] : getLocalizedAppConfig(DESKTOP_CONFIG)} 
         statusText={statusText}

@@ -93,7 +93,7 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="flex-1 flex justify-center items-center max-w-2xl px-8">
         <div className="flex items-center space-x-6 w-full">
           <div className="flex flex-col items-center min-w-[140px]">
-            <span className="text-[11px] font-semibold text-amber-500 tracking-tight whitespace-nowrap">{currentApp.name}</span>
+            <span className="text-[11px] font-semibold text-blue-500 tracking-tight whitespace-nowrap">{currentApp.name}</span>
             <span className="text-[9px] text-slate-500 font-mono truncate max-w-[120px] opacity-70">{currentApp.path}</span>
           </div>
           <div className="flex-1 flex flex-col space-y-1.5">
@@ -103,14 +103,14 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
             <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
               <div 
-                className="h-full bg-amber-600 shadow-[0_0_8px_rgba(217,119,6,0.3)] rounded-full transition-all duration-700 ease-out" 
+                className="h-full bg-blue-600 shadow-[0_0_8px_rgba(37,99,235,0.3)] rounded-full transition-all duration-700 ease-out" 
                 style={{ width: `${progress}%` }}
               ></div>
             </div>
           </div>
           <div className="hidden lg:flex items-center space-x-4 text-xs font-medium text-slate-400">
             <div className="flex items-center bg-white/5 px-2 py-1 rounded-md border border-white/5">
-              <span className="material-icons-round text-[14px] mr-1.5 text-amber-500/70">schedule</span>
+              <span className="material-icons-round text-[14px] mr-1.5 text-blue-500/70">schedule</span>
               <span>{time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
             </div>
           </div>
@@ -198,7 +198,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               <div key={appId} className="relative group w-full flex justify-center">
                  {/* Active Indicator (Bar) */}
                  {isActive && (
-                   <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 bg-amber-500 rounded-r-full shadow-[0_0_12px_rgba(217,119,6,0.5)]"></div>
+                   <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 bg-blue-500 rounded-r-full shadow-[0_0_12px_rgba(37,99,235,0.5)]"></div>
                  )}
                  
                  <button
@@ -208,11 +208,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
                    }}
                    className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 group-active:scale-90
                       ${isActive 
-                        ? 'bg-amber-600/10 text-amber-500 ring-1 ring-amber-500/20' 
+                        ? 'bg-blue-600/10 text-blue-500 ring-1 ring-blue-500/20' 
                         : (isRunning ? 'text-slate-300 hover:bg-white/5' : 'text-slate-500 hover:bg-white/5 hover:text-slate-300')
                       }`}
                  >
-                   <span className={`material-icons-round text-[22px] ${isActive ? 'text-amber-500' : ''}`}>{app.icon}</span>
+                   <span className={`material-icons-round text-[22px] ${isActive ? 'text-blue-500' : ''}`}>{app.icon}</span>
                  </button>
 
                  {/* Running Indicator (Dot) - Only show if running but NOT active (active has the bar) */}
@@ -269,7 +269,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <div className="mb-2 relative group shrink-0">
            <button
               onClick={onToggleHub}
-              className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${isHubOpen ? 'bg-amber-600 text-white shadow-xl shadow-amber-600/20' : 'hover:bg-white/5 text-amber-600'}`}
+              className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${isHubOpen ? 'bg-blue-600 text-white shadow-xl shadow-blue-600/20' : 'hover:bg-white/5 text-blue-600'}`}
            >
               <span className="material-icons-round text-2xl">grid_view</span>
            </button>

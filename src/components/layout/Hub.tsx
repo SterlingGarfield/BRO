@@ -28,7 +28,7 @@ export const Hub: React.FC<HubProps> = ({ isOpen, onClose, onNavigate, apps, lan
         </div>
         <div className="relative">
           <input 
-            className="bg-white/2 border border-white/5 rounded-2xl px-5 py-2.5 text-sm focus:ring-2 focus:ring-amber-600/30 focus:border-amber-600/50 outline-none w-56 text-white placeholder-slate-600 transition-all" 
+            className="bg-white/2 border border-white/5 rounded-2xl px-5 py-2.5 text-sm focus:ring-2 focus:ring-blue-600/30 focus:border-blue-600/50 outline-none w-56 text-white placeholder-slate-600 transition-all" 
             placeholder={t.search} 
             type="text"
             autoFocus
