@@ -7,8 +7,6 @@ interface Props {
 }
 
 export const DiskOverview: React.FC<Props> = ({ lang }) => {
-  const [tooltipPos, setTooltipPos] = useState<{x: number, y: number} | undefined>(undefined);
-
   const t = {
     totalSpace: lang === 'en' ? 'Total Space' : '总空间',
     used: lang === 'en' ? 'USED' : '已用',
@@ -100,68 +98,57 @@ export const DiskOverview: React.FC<Props> = ({ lang }) => {
          </div>
 
          {/* Chart Layer (On Top) */}
-         <div 
-           className="w-full h-[450px] z-10"
-           onMouseMove={(e) => {
-             const rect = e.currentTarget.getBoundingClientRect();
-             setTooltipPos({ x: e.clientX - rect.left + 15, y: e.clientY - rect.top + 15 });
-           }}
-           onMouseLeave={() => setTooltipPos(undefined)}
-         >
-           <ResponsiveContainer width="100%" height="100%">
-             <PieChart>
-               <Pie
-                 data={dataL1}
-                 cx="50%"
-                 cy="50%"
-                 innerRadius={90}
-                 outerRadius={135}
-                 dataKey="value"
-                 stroke="#1e293b"
-                 strokeWidth={2}
-               >
-                 {dataL1.map((entry, index) => (
-                   <Cell key={`cell-1-${index}`} fill={entry.color} />
-                 ))}
-               </Pie>
-               <Pie
-                 data={dataL2}
-                 cx="50%"
-                 cy="50%"
-                 innerRadius={137}
-                 outerRadius={180}
-                 dataKey="value"
-                 stroke="#1e293b"
-                 strokeWidth={2}
-               >
-                 {dataL2.map((entry, index) => (
-                   <Cell key={`cell-2-${index}`} fill={entry.color} />
-                 ))}
-               </Pie>
-               <Pie
-                 data={dataL3}
-                 cx="50%"
-                 cy="50%"
-                 innerRadius={182}
-                 outerRadius={225}
-                 dataKey="value"
-                 stroke="#1e293b"
-                 strokeWidth={2}
-               >
-                 {dataL3.map((entry, index) => (
-                   <Cell key={`cell-3-${index}`} fill={entry.color} />
-                 ))}
-               </Pie>
-               <Tooltip 
-                 position={tooltipPos}
-                 isAnimationActive={false}
-                 contentStyle={{ backgroundColor: 'rgba(15, 23, 42, 0.9)', borderColor: 'rgba(255,255,255,0.1)', borderRadius: '12px', color: '#fff', pointerEvents: 'none' }}
-                 itemStyle={{ color: '#fff' }}
-                 formatter={(value: number) => [`${value} GB`, 'Size']}
-               />
-             </PieChart>
-           </ResponsiveContainer>
-         </div>
+         <ResponsiveContainer width="100%" height={450} className="z-10">
+           <PieChart>
+             <Pie
+               data={dataL1}
+               cx="50%"
+               cy="50%"
+               innerRadius={90}
+               outerRadius={135}
+               dataKey="value"
+               stroke="#1e293b"
+               strokeWidth={2}
+             >
+               {dataL1.map((entry, index) => (
+                 <Cell key={`cell-1-${index}`} fill={entry.color} />
+               ))}
+             </Pie>
+             <Pie
+               data={dataL2}
+               cx="50%"
+               cy="50%"
+               innerRadius={137}
+               outerRadius={180}
+               dataKey="value"
+               stroke="#1e293b"
+               strokeWidth={2}
+             >
+               {dataL2.map((entry, index) => (
+                 <Cell key={`cell-2-${index}`} fill={entry.color} />
+               ))}
+             </Pie>
+             <Pie
+               data={dataL3}
+               cx="50%"
+               cy="50%"
+               innerRadius={182}
+               outerRadius={225}
+               dataKey="value"
+               stroke="#1e293b"
+               strokeWidth={2}
+             >
+               {dataL3.map((entry, index) => (
+                 <Cell key={`cell-3-${index}`} fill={entry.color} />
+               ))}
+             </Pie>
+             <Tooltip 
+               contentStyle={{ backgroundColor: 'rgba(15, 23, 42, 0.9)', borderColor: 'rgba(255,255,255,0.1)', borderRadius: '12px', color: '#fff' }}
+               itemStyle={{ color: '#fff' }}
+               formatter={(value: number) => [`${value} GB`, 'Size']}
+             />
+           </PieChart>
+         </ResponsiveContainer>
       </div>
 
       {/* Stats Panel */}
